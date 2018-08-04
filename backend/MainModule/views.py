@@ -66,6 +66,7 @@ def logout():
 
 @app.route("/records")
 def records():
+
 	return render_template('records.html', sidebar=False)
 
 @app.route("/appointments")
@@ -79,10 +80,7 @@ def patient_access(id):
 	for x in patient:
 		sqlAppointments = "SELECT * from appointment WHERE patient_id='" + id + "'"
 		appointment = db.session.execute(sqlAppointments)
-		for y in appointment:
-			sqlRecords = "SELECT * from record WHERE appointment_id='" + y.appointment_id + "'"
-			records = db.session.execute(sqlRecords)
-		return render_template('patient.html', patient=x, appointment=appointment, record=records)
+		return render_template('patient.html', patient=x, appointment=appointment)
 
 @app.route("/patients_list")
 def patients_list():
