@@ -37,7 +37,7 @@ class patient(db.Model):
         self.prescription_id = prescription_id
         self.appointment_id = appointment_id
 
-class prescription(types.UserDefinedType):
+class prescription(db.Model):
   	prescription_id = db.Column(db.String(10), primary_key=True)
     patient_id = db.Columnd(db.String(10), ForeignKey("patient.patient_id"))
     dosage = db.Column(db.Integer)
