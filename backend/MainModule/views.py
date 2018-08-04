@@ -70,7 +70,7 @@ def records():
 @app.route("/appointments/<string:id>")
 def appointments(id):
 	sqlQuery = "SELECT * from appointment JOIN patient WHERE appointment.doctor_id='" + id + "'"
-	appointment = db.session.execute(appointment)
+	appointment = db.session.execute(sqlQuery)
 	return render_template('appointments.html', appointment=appointment)
 
 @app.route("/patient_access/<string:id>")
