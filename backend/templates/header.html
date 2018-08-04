@@ -1,16 +1,19 @@
 <header>
   <title>HIRA</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" media="screen,projection">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}"  media="screen,projection"/>
+
 </header>
 
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">HIRA</a>
+    <a href="{{url_for('index')}}" class="brand-logo">HIRA</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
         <a href="sass.html">Settings</a>
