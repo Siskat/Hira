@@ -58,10 +58,6 @@ def patient(id):
     		records.append(db.session.execute(sqlRecords))
     return render_template('patient.html', patient=x, appointment=appointment, record=records)
 
-@app.route("/patient")
-def patient():
-    return render_template('patient.html', sidebar=False)
-
 @app.route("/patients_list")
 def patients_list():
     sqlQuery = "SELECT * from patient"
