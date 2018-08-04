@@ -124,7 +124,9 @@ def redirect_to_record_audio():
 def record_audio():
     recording_time = request.form['recording_time']
 
-    if (isinstance(recording_time, int) == False):
+    try:
+        recording_time = int(recording_time)
+    except ValueError:
         return render_template('incorrect_time.html', sidebar=False)
 
     if (recording_time <= 0):

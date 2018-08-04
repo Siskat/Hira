@@ -27,14 +27,19 @@
   <script> function recording_audio() {
     var elem = document.getElementById("audio_recording");
     var width = 0;
-    var time = (document.getElementById("recording_time_id").name)*10
-    var id = setInterval(frame, time);
+    var time = document.getElementById("recording_time_id").value;
+    var time_int = 10/parseInt(time, 10);
+
+    console.log(time_int);
+
+    var id = setInterval(frame, 100);
     function frame() {
-      if (width >= time) {
+      if (width >= 100) {
         clearInterval(id);
         converting_audio();
       } else {
-        width = width + 1;
+        //10 every second
+        width = width + time_int;
         elem.style.width = width + '%';
         elem.innerHTML = width * 1 + '%';
       }
@@ -88,7 +93,7 @@
 
     <h3>Notes</h3>
     <div class=white>
-      <ul class="collection" class="classToChange">
+      <ul class="collection classToChange">
         <!--for every record-->
           <div class="col s10">
             ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
