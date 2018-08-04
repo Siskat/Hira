@@ -77,15 +77,15 @@ def media():
 def discharge():
     return render_template('discharge.html', sidebar=False)
 
-@app.route("/patient_history")
-def patient_history():
-    return render_template('patient_history.html', sidebar=False)
+@app.route("/record_audio")
+def redirect_to_record_audio():
+    return render_template('record_audio.html', sidebar=False)
 
 @app.route("/record_audio", methods=['POST'])
 def record_audio():
     #Setting up audio specifications
     sampling_frequency = 44100
-    duration = 5 #seconds
+    duration = 10 #seconds
     channels = 1 #mono audio
 
     #Setting up defaults as our specifications
@@ -119,9 +119,6 @@ def record_audio():
     #Instantiates a client
     client = speech.SpeechClient(credentials=credentials)
 
-    while (os.path.exists("recordings/output.wav") == False):
-        sleep(0.5)
-
     #Loads the audio into memory
     with io.open(file_name_wav, 'rb') as audio_file:
         content = audio_file.read()
@@ -136,7 +133,7 @@ def record_audio():
     for result in response.results:
         transcript = transcript + result.alternatives[0].transcript
 
-    print("Transcript")
-    print(transcript)
+    #print("Transcript")
+    #print(transcript)
 
-    return render_template('index.html', sidebar=False);
+    return render_template('/record_audio.html', sidebar=False, message=transcript);

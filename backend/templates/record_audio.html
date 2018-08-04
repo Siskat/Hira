@@ -1,0 +1,61 @@
+{% include "header.html" %}
+
+<div class="container">
+
+  <div class="row">
+    <h1>NAME HERE</h1> - Ongoing/Completed
+  </div>
+
+  <div class="col s3">
+    <form action="record_audio" method="post">
+      <button type="submit" class="waves-effect waves-light btn-large">Record</button>
+    </form>
+  </div>
+
+  <div class="row">
+    <h3>Diagnosis</h3>
+    <p>sdfles;lfjl;fhakfheklfhdsaklfhadslkf</p>
+    <p> {{ message }} </p>
+    <button type="button"> edit </button>
+    <!-- change this to a pop up form when edit button is pressed -->
+    <table class="diagnosis-table">
+      <thead>
+        <tr>
+          <th>Record ID</th>
+          <th>Appointment ID</th>
+          <th>Diagnosis</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for r in patientRecord %}
+        <tr>
+          <td>{{ r.record_id }}</td>
+          <td>{{ r.appointment_id}}</td>
+          <td>{{ r.diagnosis}}</td>
+          <td>
+            View
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h3>Notes</h3>
+    <ul class="collection">
+      <!--for every record-->
+      <li class="collection-item">
+        <div class="col s10">
+          ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
+        </div>
+        <div class="col s2">
+          <div class="vote">
+            <p class="button" id="minus">-</p>
+            <p id="count">0</p>
+            <p class="button" id="plus">+</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
