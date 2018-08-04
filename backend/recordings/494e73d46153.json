@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "heroic-purpose-212309",
+  "private_key_id": "494e73d4615385abe82ed76f4ea34d0178b422a8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCshVjjezvi0NY4\n9Zn+MH20+sv9T3yH/fIrWnGiEN0X4Db2ZR4ZMVIGWzKhKHUPOFGzP8Vji7R18gos\nOp0TkzjJQ9nsvf7PBfC2D/XU00LRSDaS9h1nUtlncO7Ypf9F1wsKT4g4xh1kVFtt\nfp/CVj9bZWUoNhNEzvuRcBRlu7XE8oDXlwlvmSG3zzArJNJ6cnLelCjlMg4SQvTR\nYtuLhD/xI7Ete+jQODQ5apfYXiLHKbXlnn29CxcVFWLXWkuyJtgxNY/zgFnLM+vY\nfFzhkgOQ4Mvrl+L2I69VnZUIZpZy95a5+dlu7ma1qhv3+L0crltJIUVYK5Yjfk1l\nw8b99KKzAgMBAAECggEAUpExVRIGO8wSMsmMrWR8zVCYr3/KzHUj4U7UgqmKfyJO\ne8cyTAFYTfV4ujuYJrQgGedD65wRvr8b0kYtJhC4RU8FbfISkPc5WJEz6OtBF9N1\nVwmWUfyLUx/wF9z+WukL/h/JRM7Ag2OCLFnFUSehA/d3nfKfbzeWm+klwfjACmTx\nmY6gND3+E2zVyFQuLfbNIaDGUDbBhywUBmMS4+w4yBjJs9BHemBF9D+mJRn/hwhW\nueljviMcXn7YAA0/RGsWOP5kkwuBMwOUu/oMPeKvTOKgstuwGrhDyvx9dF2POr7f\nFjiiDDT0/RmVihEd2ZQwBm7CZVu9HtJYYn0RRmQLWQKBgQDki4+11ID586i9S3+w\naUC1VdAGdCAEqo0JIMVRTAnXFB6pji98DYy6aXTsdu5QM7mNuQamdXkUVMazLwvJ\nU05r2VUTJU7NSYsIxXNAjdCj5NTUy6ZVeHppUs6kzDFnPHpGt9yqbUMjKC6j1xN2\ns11x0ug6w1IxqZ12R9oreH68+wKBgQDBPt+9U8AKqnYnztHaCKH4COZIvLKLnp5V\n3x7nICXme868HLrQurjkJQBDrrY9518Vl3vP2y2mEZGlWIfoqVG6MbtMLYCyPQ2a\nHYFCXKLTmBExOp8XBL2awNRxrdD39GogHBqDM4NmXt6V3nYJwESSBvVYKrhCe0c/\nzUg70OXTqQKBgQDIUNLbSrDpY/mIQP5gP0CqL9avcWUG8f2//Gs2QHF3hHkDoE5a\nav3n/bqv7+YdgdinMX90sw43Fb87Goc4JL5dpRX+O/r/z+/+9iF4eVRf8pfhE8Zs\nr7aLTjs1EoxSsh1ykoDlF/N6gyOuEztKFRhYRcWqi7wlL0eGfp/o7ioXtQKBgFGe\nXKF6XgIjPQRTNg8A1mgMWjcee8q8k+Nw+Xxk950Bba/F8qF2O+EgP5xWjmJW9rIH\n6SNBT2Z0xS8w1TZPTVV268Sg81pUrwoIrC97MMptz9UbDVaLiglyqEfbQgd4E9q8\nA/amKzlxmFF0RCaaLlv+1GEIqgpqRw2Lhpa9BFUBAoGAE+kyfx6JOWFjT5pmiQDG\n2VLvQ/NFG8fJWTFkNaeI2sXXse8UkPoBhr3a0ceq8pmM7NQY48m6I6VqFiZGLWSZ\nDJ6pFleK3HeNg0vCfZX+bLeTjQsZal4nxC8Zo9n2IOjiuLAUDWpfk0XV7cH92ZW2\nYTV6/FpruJr0oxXj6xloLS4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "james-speechtotext@heroic-purpose-212309.iam.gserviceaccount.com",
+  "client_id": "106761623216823055467",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/james-speechtotext%40heroic-purpose-212309.iam.gserviceaccount.com"
+}
