@@ -115,3 +115,7 @@ body {
   animation-name: fadein;
   animation-duration: 1s;
 }
+
+.padding-left {
+  margin-left: 10px;
+}
