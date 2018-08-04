@@ -33,15 +33,13 @@ def index():
 
 @app.route("/getAllPatients")
 def getAllPatients():
-    print("Hi")
     patientList = patient.query.filter_by().all()
     resultList = []
     for u in patientList:
         curr_dic = u.__dict__
         del curr_dic['_sa_instance_state']
         resultList.append(curr_dic)
-        print(curr_dic)
-
+        #print(curr_dic)
 
     return jsonify(resultList)
 
@@ -74,21 +72,22 @@ def appointments():
 
 @app.route("/patient_access/<string:id>")
 def patient_access(id):
-	sqlQuery = "SELECT * from patient WHERE patient_id='" + id + "'"
-	patient = db.session.execute(sqlQuery)
-	for x in patient:
-		sqlAppointments = "SELECT * from appointment WHERE patient_id='" + id + "'"
-		appointment = db.session.execute(sqlAppointments)
-		for y in appointment:
-			sqlRecords = "SELECT * from record WHERE appointment_id='" + y.appointment_id + "'"
-			records = db.session.execute(sqlRecords)
-		return render_template('patient.html', patient=x, appointment=appointment, record=records)
+    sqlQuery = "SELECT * from patient WHERE patient_id='" + id + "'"
+    patient = db.session.execute(sqlQuery)
+    for x in patient:
+        sqlAppointments = "SELECT * from appointment JOIN record ON appointment.appointment_id = record.appointment_id WHERE appointment.patient_id='" + id + "'"
+        appointment = db.session.execute(sqlAppointments)
+        print(appointment)
+        #for y in appointment:
+        #    sqlRecords = "SELECT * from  record WHERE appointment_id='" + y.appointment_id + "'"
+        #    records = db.session.execute(sqlRecords)
+        return render_template('patient.html', patient=x, appointment=appointment)
 
 @app.route("/patients_list")
 def patients_list():
 	sqlQuery = "SELECT * from patient"
 	patientList = db.session.execute(sqlQuery)
-	print(patientList)
+	#print(patientList)
 	return render_template('patients_list.html', patientList=patientList)
 
 @app.route("/media")

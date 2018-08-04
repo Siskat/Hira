@@ -8,9 +8,31 @@
   <div class="row">
     <h3>Diagnosis</h3>
     <p>sdfles;lfjl;fhakfheklfhdsaklfhadslkf</p>
-    <button type="button"> edit </button>
+    <button class="waves-effect waves-light btn modal-trigger" data-target="modal1">Edit Diagnosis</button>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Edit Patient Diagnosis</h4>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row modal-form-row">
+            <div class="input-field col s12">
+              <input id="diagnosis" type="text">
+              <label placeholder="Enter diagnostic">Additional Diagnosis</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Confirm Edit</a>
+    </div>
+  </div>
+
     <!-- change this to a pop up form when edit button is pressed -->
-    <table class="diagnosis-table">
+    <!-- <table class="diagnosis-table">
       <thead>
         <tr>
           <th>Record ID</th>
@@ -31,7 +53,7 @@
         </tr>
         {% endfor %}
       </tbody>
-    </table>
+    </table> -->
 
     <h3>Notes</h3>
     <ul class="collection">
@@ -51,3 +73,6 @@
     </ul>
   </div>
 </div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

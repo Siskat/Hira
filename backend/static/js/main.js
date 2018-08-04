@@ -12,13 +12,13 @@ function queryPatients() {
   var resultList;
 
   $.getJSON("/getAllPatients", {
-    
-  }, function(response) { 
+
+  }, function(response) {
     resultList = response;
     callback(resultList)
   });
 
-  
+
 
   return [];
 }
@@ -36,6 +36,11 @@ $(function () {
     $("#count").text(counter);
   });
 
+  $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+  });
+
 });
 
 
@@ -43,8 +48,7 @@ $(function () {
 $(document).ready(function() {
   var patientData = queryPatients();
 
-   
+
 
 
 		});
-
