@@ -1,1 +1,36 @@
 {% include "header.html" %}
+
+<div class="container">
+  <br />
+
+  <!-- show if not logged in -->
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <div class="main-logo">
+        <br />
+        <br />
+        <h1>HIRA</h1>
+        <div>Make Appointments and hospital life easier, Hospitals don't need to be scary.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row center">
+    <a href="{{url_for('login')}}" class="waves-effect waves-light btn-large">Log In</a>
+  </div>
+
+  <!-- show if logged in is doctor-->
+
+  <div class="row">
+    <h1>Welcome, Doctor placeholder</h1>
+    <h2>What do you want to do today?</h2>
+    <div class="col s3">
+      <a href="{{url_for('appointments')}}" class="waves-effect waves-light btn-large">View Appointments</a>
+    </div>
+    <div class="col s3">
+      <a href="{{url_for('patients_list')}}" class="waves-effect waves-light btn-large">Search Patients</a>
+    </div>
+    <div class="col s3">
+      <a href="{{url_for('patients_list')}}" class="waves-effect waves-light btn-large">Search Patients</a>
+    </div>
+  </div>
+</div>
