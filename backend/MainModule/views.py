@@ -7,6 +7,21 @@ from backend import app, db
 from MainModule.models import patient, prescription, doctor, nurse, appointment, notes, record
 import datetime
 
+#for recording audio
+from time import sleep
+import sounddevice as sd
+import soundfile as sf
+import numpy
+import io
+import os
+import os.path
+
+#Imports the Google Cloud client library
+from google.oauth2 import service_account
+from google.cloud import speech
+from google.cloud.speech import enums
+from google.cloud.speech import types
+
 # @app.errorhandler(Exception)
 # def page_not_found(e):
 #     return render_template('index.html')
@@ -28,15 +43,9 @@ def records():
 def appointments():
     return render_template('appointments.html', sidebar=False)
 
-@app.route("/patient/<string:id>")
-def patient(id):
-    sqlQuery = "SELECT * from patient WHERE patient_id='" + id + "'"
-    print(sqlQuery)
-    patient = db.session.execute(sqlQuery)
-    print(patient)
-    for x in patient:
-        return render_template('patient.html', patient=x)
-
+@app.route("/patient")
+def patient():
+    return render_template('patient.html', sidebar=False)
 
 @app.route("/patients_list")
 def patients_list():
@@ -56,3 +65,63 @@ def discharge():
 @app.route("/patient_history")
 def patient_history():
     return render_template('patient_history.html', sidebar=False)
+
+@app.route("/record_audio", methods=['POST'])
+def record_audio():
+    #Setting up audio specifications
+    sampling_frequency = 44100
+    duration = 5 #seconds
+    channels = 1 #mono audio
+
+    #Setting up defaults as our specifications
+    sd.default.samplerate = sampling_frequency
+    sd.default.channels = channels
+
+    #prints all available devices for sound input and output
+    #> for current input device
+    #< for current output device
+    #print(sd.query_devices())
+
+    #records for the duration in seconds, and pauses the running of the file while doing so
+    #print("Start recording")
+    my_recording = sd.rec((duration * sampling_frequency), blocking=True)
+    #print("Finished recording")
+
+    #plays back the recording, need to sleep(duration) in order to pause the file while listening
+    #not needed to pause but is nice to listen without file running
+    #sd.play(my_recording)
+    #sleep(duration)
+
+    #need to save the numpy array (thats what my_recording is) as an audio file to be used for google
+    #speech to text API
+    file_name_wav = 'recordings/output.wav'
+    sf.write(file_name_wav, my_recording, sampling_frequency)
+
+    #google speech to text setup and processing
+    #Sets up credentials from API key
+    credentials = service_account.Credentials.from_service_account_file('recordings/494e73d46153.json')
+
+    #Instantiates a client
+    client = speech.SpeechClient(credentials=credentials)
+
+    while (os.path.exists("recordings/output.wav") == False):
+        sleep(0.5)
+
+    #Loads the audio into memory
+    with io.open(file_name_wav, 'rb') as audio_file:
+        content = audio_file.read()
+        audio = types.RecognitionAudio(content=content)
+    config = types.RecognitionConfig(encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,sample_rate_hertz=sampling_frequency,language_code='en-US')
+
+    #Detects speech in the audio file
+    response = client.recognize(config, audio)
+
+    #Prints the
+    transcript = ""
+    for result in response.results:
+        transcript = transcript + result.alternatives[0].transcript
+
+    print("Transcript")
+    print(transcript)
+
+    return render_template('index.html', sidebar=False);
