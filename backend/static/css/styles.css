@@ -75,7 +75,31 @@ body {
   color: #fff;
 }
 
+
 .button,
 #count {
   float: left;
+}
+
+
+
+@keyframes buttongrow {
+    from {width: 0%;}
+    to {width: 80%;}
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 100;}
+}
+
+#index-button {
+  width:80%;
+  animation-name: buttongrow;
+  animation-duration: 1s;
+}
+
+#text-fader {
+  animation-name: fadein;
+  animation-duration: 1s;
 }
