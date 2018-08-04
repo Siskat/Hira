@@ -33,15 +33,12 @@ def index():
 
 @app.route("/getAllPatients")
 def getAllPatients():
-    print("Hi")
     patientList = patient.query.filter_by().all()
     resultList = []
     for u in patientList:
         curr_dic = u.__dict__
         del curr_dic['_sa_instance_state']
         resultList.append(curr_dic)
-        print(curr_dic)
-
         #print(curr_dic)
 
     return jsonify(resultList)
