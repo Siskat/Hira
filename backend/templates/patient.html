@@ -62,12 +62,13 @@
     </div>
 <div class="col s6">
   <h3>Records</h3>
+{% for x in appointment %}
 <div class="row">
   <div class="col s12">
     <div class="card dark-blue darken-1">
       <div class="card-content white-text">
-        <p>Record ID: 0000000005</p>
-        <p>Status: Ongoing</p>
+        <p>Record ID: {{x.record_id}}</p>
+        <p>Status: {{x.status}}</p>
       </div>
       <div class="card-action">
 <a href="{{url_for('records')}}">View details</a>
@@ -75,34 +76,7 @@
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col s12">
-    <div class="card dark-blue darken-1">
-      <div class="card-content white-text">
-        <p>Record ID: 0000000003</p>
-        <p>Status: Completed</p>
-      </div>
-      <div class="card-action">
-<a href="{{url_for('records')}}">View details</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12">
-    <div class="card dark-blue darken-1">
-      <div class="card-content white-text">
-        <p>Record ID: 0000000002</p>
-        <p>Status: Completed</p>
-      </div>
-      <div class="card-action">
-<a href="{{url_for('records')}}">View details</a>
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
 
 
 </div>
