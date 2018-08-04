@@ -3,7 +3,7 @@ import requests
 import random, string
 import urllib.request
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash
-from backend import app
+from backend import app, db
 from MainModule.models import patient, prescription, doctor, nurse, appointment, notes, record 
 import datetime
 
@@ -54,7 +54,7 @@ record5 = record("0000000005","0000000005","Flu","30", "0000000005")
 
 
 db.session.add(patient1)
-db,session.add(patient2)
+db.session.add(patient2)
 db.session.add(patient3)
 db.session.add(patient4)
 db.session.add(patient5)
