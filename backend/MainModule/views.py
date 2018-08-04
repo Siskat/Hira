@@ -29,3 +29,19 @@ def  nurse_interface():
 @app.route("/patient")
 def patient():
         return render_template('patient.html', sidebar=False)
+
+@app.route("/patients_list")
+def patients_list():
+        return render_template('patients_list.html', sidebar=False)
+
+@app.route("/media")
+def media():
+        return render_template('media.html', sidebar=False)
+
+@app.route("/discharge")
+def discharge():
+        return render_template('discharge.html', sidebar=False)
+
+@app.route("/patient_history")
+def patient_history():
+        return render_template('patient_history.html', sidebar=False)
