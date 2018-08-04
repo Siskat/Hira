@@ -1,14 +1,14 @@
-var Nav = React.createClass({
-      render: function() {
-        return (
-          <div>
-            HELLO
-          </div>
-        );
-      }
-    });
+$(function () {
+  var counter = 0;
 
-    ReactDOM.render(
-      React.createElement(Nav, null),
-      document.getElementById('main')
-    );
+  $("#plus").click(function () {
+    counter++;
+    $("#count").text(counter);
+  });
+
+  $("#minus").click(function () {
+    counter--;
+    $("#count").text(counter);
+  });
+
+});

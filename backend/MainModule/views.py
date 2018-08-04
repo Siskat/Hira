@@ -18,6 +18,11 @@ def index():
 def login():
     return render_template('login.html', sidebar=False)
 
+@app.route("/records")
+def records():
+    return render_template('records.html', sidebar=False)
+
+
 @app.route("/appointments")
 def appointments():
     return render_template('appointments.html', sidebar=False)
