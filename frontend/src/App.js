@@ -13,6 +13,8 @@ class App extends Component {
         < TopNav />
       <Container>
         <Col sm="12" md={{ size: 8, offset: 2 }}>
+        <br />
+        <br />
           <MainPage />
         </Col>
       </Container>

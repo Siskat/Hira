@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -44,19 +45,19 @@ export default class TopNav extends React.Component {
               { this.state.loggedIn && 
               <div>
               <NavItem style={{display:'inline-block'}}>
-                <NavLink href="/components/">Welcome Doctor/Nurse</NavLink>
+                <NavLink>Welcome Doctor/Nurse</NavLink>
               </NavItem>
               <NavItem style={{display:'inline-block'}}>
                 <NavLink href="/components/">Settings</NavLink>
               </NavItem>
               <NavItem style={{display:'inline-block'}}>
-                <NavLink>Log Out</NavLink>
+                <NavLink href="#">Log Out</NavLink>
               </NavItem> 
               </div> }
               { !this.state.loggedIn &&
               <div>
                 <NavItem style={{display:'inline-block'}}>
-                  <NavLink>Log In</NavLink>
+                  <NavLink href="#">Log In</NavLink>
                 </NavItem>
               </div>} 
             </Nav>
