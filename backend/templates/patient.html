@@ -20,9 +20,9 @@
   <div class="col s12">
     <div class="card dark-blue darken-1">
       <div class="card-content white-text">
-        <span class="card-title">{{appointment.appointment_id}}</span>
-        <p>Doctor ID: {{appointment.doctor_id}}</p>
-        <p>Date: {{appointment.date_of_appointment}}</p>
+        <span class="card-title">{{x.appointment_id}}</span>
+        <p>Doctor ID: {{x.doctor_id}}</p>
+        <p>Date: {{x.date_of_appointment}}</p>
       </div>
     </div>
   </div>
@@ -38,8 +38,8 @@
   <div class="col s12">
     <div class="card dark-blue darken-1">
       <div class="card-content white-text">
-        <p>Record ID: {{record.record_id}}</p>
-        <p>Status: {{record.status}}</p>
+        <p>Record ID: {{x.record_id}}</p>
+        <p>Status: {{x.status}}</p>
       </div>
       <div class="card-action">
 <a href="{{url_for('records')}}">View details</a>
