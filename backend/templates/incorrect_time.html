@@ -1,0 +1,24 @@
+{% include "header.html" %}
+
+{% block content %}
+
+<main>
+  <div class="row rounded">
+    <div class="col s12 l4 offset-l4 center-align give-margin">
+
+      <h5 class="indigo-text">Invalid recording time given</h5>
+      <h5 class="indigo-text">Please use a positive, whole number</h5>
+
+
+      <div class="row">
+        <div class="col s7">
+          <a href="{{url_for('record_audio')}}" class="center waves-effect waves-light btn-large"><i class="material-icons left">audiotrack</i>Go Back</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

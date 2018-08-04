@@ -115,14 +115,23 @@ def redirect_to_record_audio():
 
 @app.route("/record_audio", methods=['POST'])
 def record_audio():
-	#Setting up audio specifications
-	sampling_frequency = 44100
-	duration = 10 #seconds
-	channels = 1 #mono audio
+    recording_time = request.form['recording_time']
+
+    if (isinstance(recording_time, int) == False):
+        return render_template('incorrect_time.html', sidebar=False)
+
+    if (recording_time <= 0):
+        return render_template('incorrect_time.html', sidebar=False)
+
+    print(recording_time)
+    #Setting up audio specifications
+    sampling_frequency = 44100
+    duration = 10 #seconds
+    channels = 1 #mono audio
 
 	#Setting up defaults as our specifications
-	sd.default.samplerate = sampling_frequency
-	sd.default.channels = channels
+    sd.default.samplerate = sampling_frequency
+    sd.default.channels = channels
 
 	#prints all available devices for sound input and output
 	#> for current input device
@@ -131,7 +140,7 @@ def record_audio():
 
 	#records for the duration in seconds, and pauses the running of the file while doing so
 	#print("Start recording")
-	my_recording = sd.rec((duration * sampling_frequency), blocking=True)
+    my_recording = sd.rec((duration * sampling_frequency), blocking=True)
 	#print("Finished recording")
 
 	#plays back the recording, need to sleep(duration) in order to pause the file while listening
@@ -141,31 +150,31 @@ def record_audio():
 
 	#need to save the numpy array (thats what my_recording is) as an audio file to be used for google
 	#speech to text API
-	file_name_wav = 'recordings/output.wav'
-	sf.write(file_name_wav, my_recording, sampling_frequency)
+    file_name_wav = 'recordings/output.wav'
+    sf.write(file_name_wav, my_recording, sampling_frequency)
 
 	#google speech to text setup and processing
 	#Sets up credentials from API key
-	credentials = service_account.Credentials.from_service_account_file('recordings/494e73d46153.json')
+    credentials = service_account.Credentials.from_service_account_file('recordings/494e73d46153.json')
 
 	#Instantiates a client
-	client = speech.SpeechClient(credentials=credentials)
+    client = speech.SpeechClient(credentials=credentials)
 
 	#Loads the audio into memory
-	with io.open(file_name_wav, 'rb') as audio_file:
-		content = audio_file.read()
-		audio = types.RecognitionAudio(content=content)
-	config = types.RecognitionConfig(encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,sample_rate_hertz=sampling_frequency,language_code='en-US')
+    with io.open(file_name_wav, 'rb') as audio_file:
+        content = audio_file.read()
+        audio = types.RecognitionAudio(content=content)
+    config = types.RecognitionConfig(encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,sample_rate_hertz=sampling_frequency,language_code='en-US')
 
 	#Detects speech in the audio file
-	response = client.recognize(config, audio)
+    response = client.recognize(config, audio)
 
 	#Prints the
-	transcript = ""
-	for result in response.results:
-		transcript = transcript + result.alternatives[0].transcript
+    transcript = ""
+    for result in response.results:
+        transcript = transcript + result.alternatives[0].transcript
 
 	#print("Transcript")
 	#print(transcript)
 
-	return render_template('/record_audio.html', sidebar=False, message=transcript);
+    return render_template('/record_audio.html', sidebar=False, message=transcript);
