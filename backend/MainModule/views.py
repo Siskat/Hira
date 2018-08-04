@@ -119,14 +119,6 @@ def patients_list():
 	test = session.query(patient.record_id, patient.full_name)
 	return render_template('patients_list.html', record_id=test.record_id, patient=test.full_name)
 
-@app.route("/patients_list",  methods=['POST'])
-def patients_list():
-    return render_template('patients_list.html', sidebar=False)
-
-@app.route("/patients_list")
-def patients_list():
-    return render_template('patients_list.html', sidebar=False)
-
 @app.route("/media")
 def media():
     return render_template('media.html', sidebar=False)
