@@ -6,7 +6,7 @@
   </div>
   <div class="row">
       <div class="col s6">
-      <div class="card blue-grey darken-1">
+      <div class="card scheme darken-1">
         <div class="card-content white-text">
           <span class="card-title">Full Name</span>
           <p>{{patient.full_name}}</p>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="col s6">
-      <div class="card blue-grey darken-1">
+      <div class="card scheme darken-1">
         <div class="card-content white-text">
           <span class="card-title">Date of Birth</span>
           <p>{{patient.date_of_birth}}</p>
@@ -24,7 +24,7 @@
 
 
     <div class="col s6">
-      <div class="card blue-grey darken-1">
+      <div class="card scheme darken-1">
         <div class="card-content white-text">
           <span class="card-title">Gender</span>
           <p>{{patient.gender}}</p>
@@ -33,7 +33,7 @@
     </div>
 
         <div class="col s6">
-      <div class="card blue-grey darken-1">
+      <div class="card scheme darken-1">
         <div class="card-content white-text">
           <span class="card-title">Weight</span>
           <p>{{patient.weight}}</p>
@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col s6">
 <h3>Appointments</h3>
-<!-- for each appointment for a patient-->
+ <!-- for each appointment for a patient -->
 {% for x in appointment %}
 <div class="row"
   <div class="col s12">
@@ -62,12 +62,17 @@
     </div>
 <div class="col s6">
   <h3>Records</h3>
-{% for x in appointment %}
+{% for y in appointment %}
 <div class="row">
   <div class="col s12">
     <div class="card dark-blue darken-1">
       <div class="card-content white-text">
+<<<<<<< HEAD
         <p>Record ID: {{x.record_id}}</p>
+=======
+        <p>Record ID: {{y.record_id}}</p>
+        <p>Status: {{y.status}}</p>
+>>>>>>> dc2235efd2dd72566a93311aea66bb0e4ffd541b
       </div>
       <div class="card-action">
 <a href="{{url_for('records')}}">View details</a>
