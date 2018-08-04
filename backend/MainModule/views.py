@@ -42,7 +42,6 @@ def getAllPatients():
         resultList.append(curr_dic)
         print(curr_dic)
         
-
     return jsonify(resultList)
 
 @app.route("/login")
