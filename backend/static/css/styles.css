@@ -2,12 +2,19 @@ nav {
   background-color: #1B4353;
 }
 
+#search-nav {
+  background-color: white;
+}
 .purple {
   background-color: #8E94F2;
 }
 
 .blue {
   background-color: #2892D7;
+}
+
+.scheme {
+    background-color: #1B4353;
 }
 
 .background {
