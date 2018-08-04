@@ -62,16 +62,18 @@ def logout():
 	session["user"] = None
 	return render_template('login.html')
 
-@app.route("/records")
-def records():
-
-	return render_template('records.html', sidebar=False)
+@app.route("/records/<string:id>")
+def records(id):
+    sqlQuery = "SELECT * FROM record JOIN appointment ON appointment.appointment_id = record.appointment_id JOIN patient ON patient.patient_id = appointment.patient_id WHERE record.record_id='" + id + "'"
+    record = db.session.execute(sqlQuery)
+    print(record)
+    return render_template('records.html', record=record)
 
 @app.route("/appointments/<string:id>")
 def appointments(id):
 	sqlQuery = "SELECT * from appointment JOIN patient WHERE appointment.doctor_id='" + id + "'"
 	appointment = db.session.execute(sqlQuery)
-	
+
 	return render_template('appointments.html', appointment=appointment)
 
 @app.route("/patient_access/<string:id>")
