@@ -42,6 +42,7 @@ def getAllPatients():
         resultList.append(curr_dic)
         print(curr_dic)
 
+        #print(curr_dic)
 
     return jsonify(resultList)
 
@@ -82,11 +83,12 @@ def patient_access(id):
 		appointment = db.session.execute(sqlAppointments)
 		return render_template('patient.html', patient=x, appointment=appointment)
 
+
 @app.route("/patients_list")
 def patients_list():
 	sqlQuery = "SELECT * from patient"
 	patientList = db.session.execute(sqlQuery)
-	print(patientList)
+	#print(patientList)
 	return render_template('patients_list.html', patientList=patientList)
 
 @app.route("/media")

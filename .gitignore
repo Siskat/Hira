@@ -9,3 +9,4 @@ archive/*
 instructions.txt
 secrets/*
 migrations/
+backend/MainModule/views.py
