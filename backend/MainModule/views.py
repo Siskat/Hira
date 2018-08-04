@@ -4,8 +4,7 @@ import random, string
 import urllib.request
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash
 from backend import app
-
-
+import MainModule.models
 import datetime
 
 patient1 = Patient("John","Doe","0000000001", datetime.datetime(1990, 1, 1),80,"Male","0000000000","0000000000")
@@ -90,10 +89,6 @@ session.add(record3)
 session.add(record4)
 session.add(record5)
 
-@app.errorhandler(Exception)
-def page_not_found(e):
-    return render_template('index.html')
-
 @app.route("/")
 @app.route("/index")
 def index():
@@ -111,9 +106,14 @@ def appointments():
 def patient():
     return render_template('patient.html', sidebar=False)
 
-@app.route("/patients_list")
+@app.route("/patients_list",  methods=['GET', 'POST'])
 def patients_list():
     return render_template('patients_list.html', sidebar=False)
+
+@app.route("/retrieveSearch",  methods=['GET', 'POST'])
+def retrieveSearch():
+        return render_template('patients_list.html', sidebar=False)
+
 
 @app.route("/media")
 def media():

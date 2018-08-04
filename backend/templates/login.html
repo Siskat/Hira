@@ -1,5 +1,53 @@
+{% include "header.html" %}
+
 {% block content %}
 
-login_page
+<main>
+        <div class="row">
+        <div class="col s12 l4 offset-l4 center-align give-margin">
+            
+            <h5 class="indigo-text">Log in to your account</h5>
+              
+            <div class="z-depth-1 grey lighten-5 row left-align">
+    
+                <form class="col s12 " method="post" action="{{ url_for('patients_list') }}" role="form">
+                        
+                    <div class='row form-margin'>
+                        <div class='input-field col s12'>
+                           <input placeholder="Email" id="email" type="text" class="validate">
+          					<label for="email">Email</label>
+                          
+                            
+                      </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class='input-field col s12'>
+                            
+					          <input placeholder="Password" id="password" type="password" class="validate">
+					          <label for="password">Password</label>
+			                                          
+                            
+                        </div>
+                        <label style='float: right;'>
+        				    <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+        				</label>
+                    </div>
+    
+                  <br />
+             
+                 <div class="row center">
+                      <button class="btn waves-effect waves-light" type="submit" name="login_button">Login
+                        <i class="material-icons right">send</i>
+                      </button>
+                  </div>
+              
+                </form>
+          
+            </div>
+        
+        </div>
+        </div>
+        </main>
 
 {% endblock %}
