@@ -1,3 +1,28 @@
+function callback(response) {
+   var dictionary = {};
+   for (var i = 0; i < response.length; i++) {
+       dictionary[response[i].full_name] = null;
+    }
+
+  $('input').autocomplete({
+      data:dictionary,
+    });
+}
+function queryPatients() {
+  var resultList;
+
+  $.getJSON("/getAllPatients", {
+    
+  }, function(response) { 
+    resultList = response;
+    callback(resultList)
+  });
+
+  
+
+  return [];
+}
+
 $(function () {
   var counter = 0;
 
@@ -12,3 +37,14 @@ $(function () {
   });
 
 });
+
+
+
+$(document).ready(function() {
+  var patientData = queryPatients();
+
+   
+
+
+		});
+

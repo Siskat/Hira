@@ -4,7 +4,7 @@ import random, string
 import urllib.request
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash
 from backend import app, db
-from MainModule.models import patient, prescription, doctor, nurse, appointment, notes, record
+from MainModule.models import user_session, patient, prescription, doctor, nurse, appointment, notes, record 
 import datetime
 
 #for recording audio
@@ -31,9 +31,38 @@ from google.cloud.speech import types
 def index():
 	return render_template('index.html', sidebar=False)
 
+@app.route("/getAllPatients")
+def getAllPatients():
+    print("Hi")
+    patientList = patient.query.filter_by().all()
+    resultList = []
+    for u in patientList:
+        curr_dic = u.__dict__
+        del curr_dic['_sa_instance_state']
+        resultList.append(curr_dic)
+        print(curr_dic)
+        
+
+    return jsonify(resultList)
+
 @app.route("/login")
 def login():
 	return render_template('login.html', sidebar=False)
+
+@app.route("/nurseLogin")
+def nurseLogin():
+    session["user"] = "Nurse"
+    return render_template('index.html')
+
+@app.route("/doctorLogin")
+def doctorLogin():
+    session["user"] = "Doctor"
+    return render_template('index.html')
+
+@app.route("/logout")
+def logout():
+    session["user"] = None
+    return render_template('login.html')
 
 @app.route("/records")
 def records():
