@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col s6">
 <h3>Appointments</h3>
-<!-- for each appointment for a patient-->
+ <!-- for each appointment for a patient -->
 {% for x in appointment %}
 <div class="row"
   <div class="col s12">
@@ -62,13 +62,13 @@
     </div>
 <div class="col s6">
   <h3>Records</h3>
-{% for x in appointment %}
+{% for y in appointment %}
 <div class="row">
   <div class="col s12">
     <div class="card dark-blue darken-1">
       <div class="card-content white-text">
-        <p>Record ID: {{x.record_id}}</p>
-        <p>Status: {{x.status}}</p>
+        <p>Record ID: {{y.record_id}}</p>
+        <p>Status: {{y.status}}</p>
       </div>
       <div class="card-action">
 <a href="{{url_for('records')}}">View details</a>

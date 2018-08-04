@@ -66,7 +66,6 @@ def logout():
 def records(id):
     sqlQuery = "SELECT * FROM record JOIN appointment ON appointment.appointment_id = record.appointment_id JOIN patient ON patient.patient_id = appointment.patient_id WHERE record.record_id='" + id + "'"
     record = db.session.execute(sqlQuery)
-    print(record)
     return render_template('records.html', record=record)
 
 @app.route("/appointments/<string:id>")
@@ -83,6 +82,7 @@ def patient_access(id):
 	for x in patient:
 		sqlAppointments = "SELECT * from appointment JOIN record ON appointment.appointment_id = record.appointment_id WHERE appointment.patient_id='" + id + "'"
 		appointment = db.session.execute(sqlAppointments)
+
 		return render_template('patient.html', patient=x, appointment=appointment)
 
 @app.route("/patients_list")

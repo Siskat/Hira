@@ -6,11 +6,60 @@
     <h1>NAME HERE</h1> - Ongoing/Completed
   </div>
 
+  <div class="friend2title">
+    <label for="url">Add points:</label>
+  </div>
+  <div class="friend2field">
+    <input name="state" type="number" id="state" maxlength="150">
+  </div>
+
   <div class="col s3">
     <form action="record_audio" method="post">
-      <button type="submit" class="waves-effect waves-light btn-large">Record</button>
+      <button onclick=recording_audio() type="submit" class="waves-effect waves-light btn-large">Record</button>
     </form>
   </div>
+
+  <p> Recording Audio </p>
+  <div class="progress">
+      <div id="audio_recording" class="determinate" style="width:0%"></div>
+  </div>
+
+  <p> Converting To Text </p>
+  <div class="progress">
+      <div id="audio_conversion" class="determinate" style="width:0%"></div>
+  </div>
+
+  <script> function recording_audio() {
+    var elem = document.getElementById("audio_recording");
+    var width = 0;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        converting_audio();
+      } else {
+        width = width + 1;
+        elem.style.width = width + '%';
+        elem.innerHTML = width * 1 + '%';
+      }
+    }
+  } </script>
+
+  <script> function converting_audio() {
+    var elem = document.getElementById("audio_conversion");
+    var width = 0;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width = width + 1.5;
+        console.log(width)
+        elem.style.width = width + '%';
+        elem.innerHTML = width * 1 + '%';
+      }
+    }
+  } </script>
 
   <div class="row">
     <h3>Diagnosis</h3>
@@ -42,20 +91,21 @@
     </table>
 
     <h3>Notes</h3>
-    <ul class="collection">
-      <!--for every record-->
-      <li class="collection-item">
-        <div class="col s10">
-          ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
-        </div>
-        <div class="col s2">
-          <div class="vote">
-            <p class="button" id="minus">-</p>
-            <p id="count">0</p>
-            <p class="button" id="plus">+</p>
+    <div class=white>
+      <ul class="collection" class="classToChange">
+        <!--for every record-->
+          <div class="col s10">
+            ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
           </div>
-        </div>
-      </li>
-    </ul>
+          <div class="col s2">
+            <div class="vote">
+              <p class="button" id="minus">-</p>
+              <p id="count">0</p>
+              <p class="button" id="plus">+</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
