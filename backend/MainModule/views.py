@@ -4,7 +4,6 @@ import random, string
 import urllib.request
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash
 from backend import app
-<<<<<<< HEAD
 import MainModule.models
 import datetime
 
