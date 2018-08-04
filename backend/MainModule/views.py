@@ -7,6 +7,8 @@ from backend import app, db
 from MainModule.models import user_session, patient, prescription, doctor, nurse, appointment, notes, record
 import datetime
 
+idCount = 4
+
 #for recording audio
 from time import sleep
 import sounddevice as sd
@@ -25,18 +27,6 @@ from google.cloud.speech import types
 # @app.errorhandler(Exception)
 # def page_not_found(e):
 #     return render_template('index.html')
-
-record1 = record("0000000001", "0000000001", "Flu", "On-Going", "0000000001")
-record2 = record("0000000002", "0000000002", "Flu", "Completed", "0000000002")
-record3 = record("0000000003", "0000000003", "Flu", "Completed", "0000000003")
-record4 = record("0000000004", "0000000004", "Flu", "Completed", "0000000004")
-
-db.session.add(record1)
-db.session.add(record2)
-db.session.add(record3)
-db.session.add(record4)
-
-db.session.commit
 
 @app.route("/")
 @app.route("/index")
@@ -76,9 +66,21 @@ def logout():
 
 @app.route("/records/<string:id>")
 def records(id):
-    sqlQuery = "SELECT * FROM record JOIN appointment ON appointment.appointment_id = record.appointment_id JOIN patient ON patient.patient_id = appointment.patient_id WHERE record.record_id='" + id + "'"
+    sqlQuery = "SELECT patient.full_name, record.record_id, record.status, record.diagnosis FROM record JOIN appointment ON appointment.appointment_id = record.appointment_id JOIN patient ON patient.patient_id = appointment.patient_id WHERE record.record_id='" + id + "'"
     record = db.session.execute(sqlQuery)
-    return render_template('records.html', record=record)
+    sqlNotes = "SELECT * FROM record JOIN notes on record.record_id = notes.record_id"
+    notes = db.session.execute(sqlNotes)
+    return render_template('records.html', record=record, notes=notes)
+
+
+@app.route("/add_notes/<string:id>", methods=['GET', 'POST'])
+def add_notes(id):
+    global idCount
+    notes2 = notes("000000000" + str(idCount), datetime.datetime(2018, 5, 8), "allergic to stuff", '0000000002')
+    idCount+=1
+    db.session.add(notes2)
+    db.session.commit()
+    return redirect(url_for('records',id=id))
 
 @app.route("/appointments/<string:id>")
 def appointments(id):

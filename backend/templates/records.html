@@ -31,14 +31,16 @@
         <a class=" modal-action modal-close waves-effect waves-green btn-flat">Confirm Edit</a>
       </div>
     </div>
-    {% endfor %}
+    
     <h3>Notes</h3>
     <div class="white">
       <ul class="collection classToChange">
         <!--for every record-->
+        {% for y in notes %}
         <li class="collection-item">
+          <div class="row">
           <div class="col s10">
-            ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
+           {{y.description}}
           </div>
           <div class="col s2">
             <div class="vote">
@@ -47,7 +49,9 @@
               <p class="button" id="plus">+</p>
             </div>
           </div>
+</div>
         </li>
+        {% endfor %}
       </ul>
     </div>
     <button class="waves-effect waves-light btn modal-trigger" data-target="modal2">Add Notes</button>
@@ -68,11 +72,12 @@
       </div>
       <div class="modal-footer">
         <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-        <a class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+        <a href="{{ url_for('add_notes',id=x.record_id) }}" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
       </div>
     </div>
   </div>
 </div>
+{% endfor %}
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

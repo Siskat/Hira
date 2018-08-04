@@ -85,11 +85,13 @@ class notes(db.Model):
     notes_id = db.Column(db.String(10), primary_key=True)
     date = db.Column(db.Date)
     description = db.Column(db.String(500))
+    record_id = db.Column(db.String(10), db.ForeignKey("record.record_id"))
 
-    def __init__(self, notes_id, date, description):
+    def __init__(self, notes_id, date, description, record_id):
         self.notes_id = notes_id
         self.date = date
         self.description = description
+        self.record_id = record_id
 
 class record(db.Model):
     record_id = db.Column(db.String(10), primary_key=True)
