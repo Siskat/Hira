@@ -18,10 +18,21 @@
     <a href="{{url_for('index')}}" class="brand-logo">HIRA</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
-        <a href="sass.html">Settings</a>
+        <a href="{{url_for('appointments')}}"><i class="material-icons left">people</i>Appointments</a>
       </li>
       <li>
-        <a href="{{url_for('logout')}}">Log Out</a>
+        <a href="{{url_for('patients_list')}}"><i class="material-icons left">search</i>Search</a>
+      </li>
+      <li>
+        <a href="{{url_for('record_audio')}}"><i class="material-icons left">audiotrack</i>Recordings</a>
+      </li>
+      <li>
+        {% if session.user != None %}
+        <a href="{{url_for('logout')}}"><i class="material-icons left">exit_to_app</i>Log Out</a>
+        {% else %}
+        <a href="{{url_for('login')}}"><i class="material-icons left">exit_to_app</i>Log In</a>
+        {% endif %}
+
       </li>
     </ul>
   </div>
