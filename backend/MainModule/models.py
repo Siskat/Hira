@@ -50,7 +50,7 @@ class doctor(db.Model):
     date_of_birth = db.Column(db.Date)
     specialty = db.Column(db.String(50))
 
-    def __init__(full_name, doctor_id, date_of_birth, specialty):
+    def __init__(self, full_name, doctor_id, date_of_birth, specialty):
         self.full_name = full_name
         self.doctor_id = doctor_id
         self.date_of_birthday = date_of_birth
@@ -61,7 +61,7 @@ class nurse(db.Model):
     nurse_id = db.Column(db.String(10), primary_key=True)
     date_of_birth = db.Column(db.Date)
 
-    def __init__(full_name, nurse_id, date_of_birth, record_id):
+    def __init__(self, full_name, nurse_id, date_of_birth):
         self.full_name = full_name
         self.nurse_id = nurse_id
         self.date_of_birthday = date_of_birth
@@ -86,7 +86,7 @@ class notes(db.Model):
     date = db.Column(db.Date)
     description = db.Column(db.String(500))
 
-    def __init__(self, notes_id, date, status):
+    def __init__(self, notes_id, date, description):
         self.notes_id = notes_id
         self.date = date
         self.description = description
