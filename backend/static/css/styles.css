@@ -14,10 +14,7 @@ nav {
 }
 
 .scheme {
-    background-color: #1B4353;
-
-.white {
-  background-color: #000000;
+    background-color: #1B4353 !important;
 }
 
 .background {
@@ -28,6 +25,7 @@ nav {
   background-position: right bottom;
   background-repeat: no-repeat;
 }
+
 h1 {
   color: #173753;
 }
