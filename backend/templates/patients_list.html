@@ -28,7 +28,7 @@
         <td>{{ x.patient_id }}</td>
         <td>{{ x.full_name}}</td>
         <td>
-          <a href="{{url_for('patient', id=x.patient_id)}}" class="waves-effect waves-light btn-small">View</a>
+          <a href="{{url_for('patient_access', id=x.patient_id)}}" class="waves-effect waves-light btn-small">View</a>
         </td>
       </tr>
       {% endfor %}
