@@ -14,11 +14,7 @@
   color: #fff !important;
 }
 
-.parent {
-  position: relative;
-}
 .main-logo {
-  width: 500px;
   height: 500px;
   background-color: #8E94F2;
   color: #1B4353;
@@ -27,7 +23,6 @@
 }
 
 .btn-dark-blue{
-  position: relative;
   color: white;
   background-color: #1B4353;
 }
