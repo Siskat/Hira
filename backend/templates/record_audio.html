@@ -21,7 +21,7 @@
 
   <p> Converting To Text </p>
   <div class="progress">
-      <div id="audio_conversion" class="determinate" style="width:0%"></div>
+      <div id="audio_conversion" class="determinate"></div>
   </div>
 
   <script> function recording_audio() {
@@ -29,33 +29,14 @@
     var width = 0;
     var time = document.getElementById("recording_time_id").value;
     var time_int = 10/parseInt(time, 10);
-
-    console.log(time_int);
-
     var id = setInterval(frame, 100);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
-        converting_audio();
+        document.getElementById("audio_conversion").className = "indeterminate";
       } else {
         //10 every second
         width = width + time_int;
-        elem.style.width = width + '%';
-        elem.innerHTML = width * 1 + '%';
-      }
-    }
-  } </script>
-
-  <script> function converting_audio() {
-    var elem = document.getElementById("audio_conversion");
-    var width = 0;
-    var id = setInterval(frame, 100);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-      } else {
-        width = width + 1.5;
-        console.log(width)
         elem.style.width = width + '%';
         elem.innerHTML = width * 1 + '%';
       }
