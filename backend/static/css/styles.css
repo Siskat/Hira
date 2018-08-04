@@ -1,0 +1,33 @@
+.main-logo {
+  height: 500px;
+  background-color: #8E94F2;
+  color: #1B4353;
+  text-align: center;
+  border-radius: 20px;
+}
+
+nav {
+  background-color: #1B4353;
+}
+
+h1 {
+  color: #173753;
+}
+
+h2 {
+  color: #173753;
+}
+
+.dark-blue {
+  background-color: #1B4353 !important;
+}
+
+.btn-large {
+  color: white;
+  background-color: #1B4353;
+}
+
+body {
+  font-size: 20px;
+  color: #173753;
+}
