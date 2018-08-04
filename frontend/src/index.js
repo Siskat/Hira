@@ -8,10 +8,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 ReactDOM.render(
     <BrowserRouter>
-      <Switch>
-      <Route path="/" component={App}/>
-      <Route path="/login" component={LoginPage}/>
-      </Switch>
+      <App />
     </BrowserRouter>,
     document.getElementById('root'));
 registerServiceWorker();

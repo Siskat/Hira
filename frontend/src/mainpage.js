@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 export default class MainPage extends Component {
   render() {
@@ -14,7 +15,7 @@ export default class MainPage extends Component {
         </div>
         <br />
         <br />
-        <Button color="dark-blue" to="/login" size="lg">Log in</Button>{' '}
+        <Link to='/loginpage'><Button color="dark-blue" size="lg">Log in</Button>{' '}</Link>
       </div>
     )
   }
