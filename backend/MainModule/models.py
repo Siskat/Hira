@@ -12,7 +12,6 @@ class user_session(db.Model):
         self.session_id = unique_id
         self.no_users = 0
         self.date_created = curr_date
-    
     def __str__(self):
         return self.session_id
 
