@@ -1,5 +1,6 @@
-from MeetupPoint import app, db
+from backend import app, db
 from flask_sqlalchemy import SQLAlchemy
+
 # Creating a model for applications
 class user_session(db.Model):
     session_id = db.Column(db.String(13), primary_key=True, default=None)
@@ -35,7 +36,7 @@ class patient(db.Model):
 
 class prescription(db.Model):
     prescription_id = db.Column(db.String(10), primary_key=True)
-    patient_id = db.Columnd(db.String(10), ForeignKey("patient.patient_id"))
+    patient_id = db.Column(db.String(10), db.ForeignKey("patient.patient_id"))
     dosage = db.Column(db.Integer)
     date = db.Column(db.Date)
 
@@ -72,10 +73,10 @@ class nurse(db.Model):
         self.date_of_birthday = date_of_birth
 
 class appointment(db.Model):
-    appointment_id = db.Column(db.String(10))
+    appointment_id = db.Column(db.String(10), primary_key=True)
     date_of_appointment = db.Column(db.Date)
-    patient_id = db.Column(db.String(10), ForeignKey("patient.patient_id"))
-    doctor_id = db.Column(db.String(10), ForeignKey("doctor.doctor_id"))
+    patient_id = db.Column(db.String(10), db.ForeignKey("patient.patient_id"))
+    doctor_id = db.Column(db.String(10), db.ForeignKey("doctor.doctor_id"))
     status = db.Column(db.String(20))
 
     def __init__(self, appointment_id, date_of_appointment, patient_id, doctor_id, status):
@@ -87,7 +88,7 @@ class appointment(db.Model):
 
 
 class notes(db.Model):
-    notes_id = db.Column(db.String(10)), primary_key=True)
+    notes_id = db.Column(db.String(10), primary_key=True)
     date = db.Column(db.Date)
     description = db.Column(db.String(100))
 
@@ -98,10 +99,10 @@ class notes(db.Model):
 
 class record(db.Model):
     record_id = db.Column(db.String(10), primary_key=True)
-    appointment_id = db.Column(db.String(10), ForeignKey("appointment.appointment_id"))
+    appointment_id = db.Column(db.String(10), db.ForeignKey("appointment.appointment_id"))
     diagnosis = db.Column(db.String(20))
     status = db.Column(db.String(20))
-    notes_id = db.Column(db.String(10), ForeignKey("notes.notes_id"))
+    notes_id = db.Column(db.String(10), db.ForeignKey("notes.notes_id"))
 
     def __init__(self, record_id, appointment_id, diagnosis, status, notes_id):
         self.record_id = record_id

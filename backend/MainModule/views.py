@@ -4,10 +4,7 @@ import random, string
 import urllib.request
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash
 from backend import app
-
-@app.errorhandler(Exception)
-def page_not_found(e):
-    return render_template('index.html')
+import MainModule.models
 
 @app.route("/")
 @app.route("/index")
@@ -30,9 +27,14 @@ def  nurse_interface():
 def patient():
         return render_template('patient.html', sidebar=False)
 
-@app.route("/patients_list")
+@app.route("/patients_list",  methods=['GET', 'POST'])
 def patients_list():
         return render_template('patients_list.html', sidebar=False)
+
+@app.route("/retrieveSearch",  methods=['GET', 'POST'])
+def retrieveSearch():
+        return render_template('patients_list.html', sidebar=False)
+
 
 @app.route("/media")
 def media():
