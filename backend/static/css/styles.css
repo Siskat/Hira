@@ -27,6 +27,11 @@ h2 {
   background-color: #1B4353;
 }
 
+.btn-small {
+  color: white;
+  background-color: #1B4353;
+}
+
 body {
   font-size: 20px;
   color: #173753;
