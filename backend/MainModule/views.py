@@ -118,10 +118,9 @@ def record_audio():
     if (recording_time <= 0):
         return render_template('incorrect_time.html', sidebar=False)
 
-    print(recording_time)
     #Setting up audio specifications
     sampling_frequency = 44100
-    duration = 10 #seconds
+    duration = recording_time #seconds
     channels = 1 #mono audio
 
 	#Setting up defaults as our specifications

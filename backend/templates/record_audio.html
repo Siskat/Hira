@@ -9,7 +9,7 @@
 
   <div class="col s3">
     <form action="record_audio" method="post">
-      <input type = 'text' name = 'recording_time'>
+      <input id="recording_time_id" type='text' name='recording_time'>
       <button onclick=recording_audio() type="submit" class="waves-effect waves-light btn-large">Record</button>
     </form>
   </div>
@@ -27,9 +27,10 @@
   <script> function recording_audio() {
     var elem = document.getElementById("audio_recording");
     var width = 0;
-    var id = setInterval(frame, 100);
+    var time = (document.getElementById("recording_time_id").name)*10
+    var id = setInterval(frame, time);
     function frame() {
-      if (width >= 100) {
+      if (width >= time) {
         clearInterval(id);
         converting_audio();
       } else {
