@@ -26,19 +26,22 @@
 
   <div class="row">
     {% if session.user != None %}
-    <h1>Welcome, {{session.user}} Ranpara</h1>
-    <h2>What do you want to do today?</h2>
-    <div class="col s3">
-      <a href="{{url_for('appointments')}}" class="waves-effect waves-light btn-large">View Appointments</a>
+    <h1 id="text-fader">Welcome, {{session.user}} Ranpara</h1>
+    <h2 id="text-fader">What do you want to do today?</h2>
+    <div class="col s5">
+      <a href="{{url_for('appointments')}}" class="waves-effect waves-light btn-large" id="index-button"><i class="material-icons left">people</i>View Appointments</a>
     </div>
-    <div class="col s3">
-      <a href="{{url_for('patients_list')}}" class="waves-effect waves-light btn-large">Search Patients</a>
     </div>
-    <div class="col s3">
-      <a href="{{url_for('patients_list')}}" class="waves-effect waves-light btn-large">Search Patients</a>
+    <div class="row">
+    <div class="col s6">
+      <a href="{{url_for('patients_list')}}" class="waves-effect waves-light btn-large" id="index-button"><i class="material-icons left">search</i>Search Patients</a>
     </div>
-    <div class="col s3">
-      <a href="{{url_for('record_audio')}}" class="waves-effect waves-light btn-large">Recordings</a>
+    </div>
+
+    <div class="row">
+    <div class="col s7">
+      <a href="{{url_for('record_audio')}}" class="waves-effect waves-light btn-large" id="index-button"><i class="material-icons left">audiotrack</i>Recordings</a>
+    </div>
     </div>
     </form>
 
