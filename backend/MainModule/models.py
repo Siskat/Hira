@@ -24,18 +24,14 @@ class patient(db.Model):
     date_of_birth = db.Column(db.Date)
     weight = db.Column(db.Float)
     gender = db.Column(db.String(1))
-  	prescription_id = db.Column(db.String(10), ForeignKey("prescription.prescription_id"))
-    appointment_id = db.column
 
-    def __init__(self, first_name, last_name, patient_id, date_of_birth, weight, gender, prescription_id, appointment_id):
+    def __init__(self, first_name, last_name, patient_id, date_of_birth, weight, gender):
         self.first_name = first_name
         self.last_name = last_name
         self.patient_id = patient_id
         self.date_of_birth = date_of_birth
         self.weight = weight
         self.gender = gender
-        self.prescription_id = prescription_id
-        self.appointment_id = appointment_id
 
 class prescription(db.Model):
     prescription_id = db.Column(db.String(10), primary_key=True)
@@ -54,7 +50,7 @@ class doctor(db.Model):
     last_name = db.Column(db.String(20))
     doctor_id = db.Column(db.String(10), primary_key=True)
     date_of_birth = db.Column(db.Date)
-    specialty = db.Column(db.String(10))
+    specialty = db.Column(db.String(20))
 
     def __init__(first_name, last_name, doctor_id, date_of_birth, specialty):
         self.first_name = first_name
