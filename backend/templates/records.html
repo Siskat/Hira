@@ -3,11 +3,12 @@
 <div class="container">
 
   <div class="row">
-    <h1>{{record.full_name}}</h1> - {{record.status}}
+    {% for x in record %}
+    <h1>{{x.full_name}}</h1> - {{x.status}}
   </div>
   <div class="row">
     <h3>Diagnosis</h3>
-    <p>{{record.diagnosis}}</p>
+    <p>{{x.diagnosis}}</p>
     <button class="waves-effect waves-light btn modal-trigger" data-target="modal1">Edit Diagnosis</button>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
@@ -30,7 +31,7 @@
       <a class=" modal-action modal-close waves-effect waves-green btn-flat">Confirm Edit</a>
     </div>
   </div>
-
+  {% endfor %}
     <h3>Notes</h3>
     <ul class="collection">
       <!--for every record-->
