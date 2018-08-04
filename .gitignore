@@ -8,3 +8,4 @@ migrations/*
 archive/* 
 instructions.txt
 secrets/*
+migrations/
