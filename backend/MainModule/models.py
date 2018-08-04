@@ -87,7 +87,7 @@ class appointment(db.Model):
 
 
 class notes(db.Model):
-    notes_id = db.Column(db.String(10)), primary_key=True)
+    notes_id = db.Column(db.String(10), primary_key=True)
     date = db.Column(db.Date)
     description = db.Column(db.String(100))
 
