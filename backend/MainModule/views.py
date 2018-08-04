@@ -28,9 +28,15 @@ def records():
 def appointments():
     return render_template('appointments.html', sidebar=False)
 
-@app.route("/patient")
-def patient():
-    return render_template('patient.html', sidebar=False)
+@app.route("/patient/<string:id>")
+def patient(id):
+    sqlQuery = "SELECT * from patient WHERE patient_id='" + id + "'"
+    print(sqlQuery)
+    patient = db.session.execute(sqlQuery)
+    print(patient)
+    for x in patient:
+        return render_template('patient.html', patient=x)
+
 
 @app.route("/patients_list")
 def patients_list():

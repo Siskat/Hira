@@ -3,13 +3,13 @@
 <div class="container">
   <h2>Patient View</h2>
   <div class="row">
-    <div class="col s6">Name: stuff stuff</div>
+<div class="col s6">Name: {{patient.full_name}}</div>
 <div class="col s6">Age: 40</div>
   </div>
   <div class="row">
-<div class="col s4">DOB: 11/11/1111</div>
-<div class="col s4">Gender: male</div>
-<div class="col s4">Weight: 100kg</div>
+<div class="col s4">DOB: {{patient.date_of_birth}}</div>
+<div class="col s4">Gender: {{patient.gender}}</div>
+<div class="col s4">Weight: {{patient.weight}}</div>
   </div>
   <div class="row">
     <div class="col s6">
