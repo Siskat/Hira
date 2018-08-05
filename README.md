@@ -1,12 +1,5 @@
-# MeetupPoint
-An application that gets the locations of a group of users, and finds optimal meetup points.
-
-## Requirements
-Install all the dependencies
-
-```
-pip install -r requirements.txt
-```
+# Hira
+Hospital Experience made easy.
 
 ## Database
 This step requires that a database to be running locally or on a remote server.
