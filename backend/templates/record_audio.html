@@ -3,13 +3,14 @@
 <div class="container">
 
   <div class="row">
-    <h1>John Doe</h1> - Ongoing
+    <h1>Audio Recordings</h1>
   </div>
 
 
   <div class="col s3">
     <form action="record_audio" method="post">
       <input id="recording_time_id" type='text' name='recording_time'>
+      <label placeholder="time_specification">Specify the number of seconds you wish to record audio for</label>
       <button onclick=recording_audio() type="submit" class="waves-effect waves-light btn-large">Record</button>
     </form>
   </div>
@@ -45,7 +46,6 @@
 
   <div class="row">
     <h3>Diagnosis</h3>
-    <p></p>
     <p> {{ message }} </p>
     <button class="waves-effect waves-light btn-large">Edit</button>
     <!-- change this to a pop up form when edit button is pressed -->
@@ -76,7 +76,17 @@
     <div class=white>
       <ul class="collection classToChange">
         <!--for every record-->
-          
+          <div class="col s10">
+            ksdkjaf skfieie skldfaldsjfal dsfks afioe sa dsa fosdfioa d.
+          </div>
+          <div class="col s2">
+            <div class="vote">
+              <p class="button" id="minus">-</p>
+              <p id="count">0</p>
+              <p class="button" id="plus">+</p>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
